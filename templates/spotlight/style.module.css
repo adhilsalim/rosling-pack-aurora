@@ -1,0 +1,33 @@
+/* spotlight: styles used only by this template. */
+/* the three colours of the lights: the theme's aurora colours, or shades of its accent in any other theme */
+.slide{--a:var(--aurora-a,var(--accent));--b:var(--aurora-b,var(--accent-strong));--c:var(--aurora-c,color-mix(in oklab,var(--accent) 55%,var(--fg)))}
+
+/* ---- the picture: fades in, then drifts slowly closer (once, it doesn't loop) ---- */
+.picture{position:absolute;inset:0;overflow:hidden;animation:fade 1.6s ease-out both}
+.media{position:absolute;inset:0;width:100%;height:100%;transform-origin:62% 40%;animation:drift 16s cubic-bezier(.25,.6,.3,1) both}
+/* the shade keeps the words readable on any picture: the theme's background, rising from the bottom corner */
+.shade{position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(to top,color-mix(in oklab,var(--bg) 92%,transparent) 0%,color-mix(in oklab,var(--bg) 55%,transparent) 30%,transparent 62%),
+  linear-gradient(to right,color-mix(in oklab,var(--bg) 70%,transparent) 0%,transparent 55%)}
+.right .shade{background:
+  linear-gradient(to top,color-mix(in oklab,var(--bg) 92%,transparent) 0%,color-mix(in oklab,var(--bg) 55%,transparent) 30%,transparent 62%),
+  linear-gradient(to left,color-mix(in oklab,var(--bg) 70%,transparent) 0%,transparent 55%)}
+
+/* ---- words ---- */
+.words{position:absolute;left:var(--pad-x);bottom:calc(var(--footer-h) + 56px);width:1240px;z-index:1}
+.right .words{left:auto;right:var(--pad-x);text-align:right}
+.kicker{display:inline-flex;align-items:center;gap:16px;font-family:var(--font-mono);font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;
+  animation:fade-up .9s cubic-bezier(.2,.7,.2,1) .5s both}
+.kicker::before{content:"";width:40px;height:2px;background:linear-gradient(90deg,var(--a),var(--c))}
+.title{font-weight:300;font-size:92px;line-height:1.04;letter-spacing:-.035em;animation:fade-up 1.1s cubic-bezier(.16,.8,.2,1) .65s both;text-wrap:balance}
+.caption{font-size:30px;line-height:1.45;color:var(--muted);margin-top:28px;max-width:900px;animation:fade-up 1s cubic-bezier(.2,.7,.2,1) .9s both}
+.right .caption{margin-left:auto}
+.credit{position:absolute;right:var(--pad-x);top:56px;font-family:var(--font-mono);font-size:18px;letter-spacing:.06em;color:var(--muted);z-index:1;
+  padding:8px 16px;border-radius:99px;background:color-mix(in oklab,var(--bg) 55%,transparent);animation:fade 1s ease-out 1.4s both}
+.right .credit{right:auto;left:var(--pad-x)}
+
+/* ---- motion ---- */
+@keyframes fade{from{opacity:0}}
+@keyframes fade-up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes drift{from{transform:scale(1.14) translate(1.5%,1%)}to{transform:scale(1.03)}}
+@media (prefers-reduced-motion:reduce){.picture,.media,.kicker,.title,.caption,.credit{animation:none}.media{transform:scale(1.03)}}

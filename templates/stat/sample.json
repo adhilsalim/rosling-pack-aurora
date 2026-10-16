@@ -1,0 +1,10 @@
+{
+  "kicker": "Ten winters of data",
+  "title": "The sky is busier than it looks",
+  "stats": [
+    { "value": 1284, "label": "nights with aurora", "detail": "Out of 1,850 clear nights since the station opened." },
+    { "value": 98.6, "decimals": 1, "suffix": "%", "label": "of alerts sent in time", "detail": "Warnings reach watchers before the lights do." },
+    { "value": 42, "suffix": "k", "label": "photos from the public", "detail": "Each one helps us map where the lights reach." }
+  ],
+  "source": "Polar Lab observation log, 2016 to 2026"
+}

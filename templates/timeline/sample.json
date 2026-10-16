@@ -1,0 +1,10 @@
+{
+  "kicker": "How we got here",
+  "title": "From one camera to a network of watchers",
+  "steps": [
+    { "when": "2016", "title": "A camera on the roof", "text": "One all-sky camera and a script that emailed us when the sky turned green." },
+    { "when": "2019", "title": "Alerts for everyone", "text": "A public page and a phone alert, sent when the solar wind picks up." },
+    { "when": "2023", "title": "Photos from the public", "text": "Watchers upload their shots, and each one adds a point to the map." },
+    { "when": "2026", "title": "Forecasts an hour ahead", "text": "A model trained on ten winters of data warns before the lights arrive.", "now": true }
+  ]
+}

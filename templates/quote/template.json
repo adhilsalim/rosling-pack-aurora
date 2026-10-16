@@ -1,0 +1,10 @@
+{
+  "description": "A quote set large in the display font, revealed word by word, with who said it and an optional portrait.",
+  "props": {
+    "variant": { "type": "enum", "values": ["light", "dark", "accent"], "default": "dark" },
+    "quote": { "type": "text", "required": true, "max": 200, "description": "Without quote marks. **bold** words glow in the aurora colours." },
+    "name": { "type": "text", "max": 50, "description": "Who said it" },
+    "role": { "type": "text", "max": 80, "description": "Their role, or where it was said" },
+    "image": { "type": "image", "description": "A portrait in assets/ (square works best)" }
+  }
+}

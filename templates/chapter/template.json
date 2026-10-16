@@ -1,0 +1,10 @@
+{
+  "description": "A chapter divider. A large glowing number, a big title and one line about what comes next, under a quiet aurora.",
+  "props": {
+    "variant": { "type": "enum", "values": ["light", "dark", "accent"], "default": "dark" },
+    "number": { "type": "text", "max": 3, "description": "The chapter number, like 02 or IV" },
+    "label": { "type": "text", "max": 24, "default": "Chapter", "description": "Small word above the title" },
+    "title": { "type": "text", "required": true, "max": 48, "description": "A line break starts a new line" },
+    "text": { "type": "text", "max": 130, "description": "One line about this chapter" }
+  }
+}

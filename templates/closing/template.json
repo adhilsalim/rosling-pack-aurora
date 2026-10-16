@@ -1,0 +1,11 @@
+{
+  "description": "The closing slide, under the aurora. A big thank-you whose letters rise one by one, a line of text, contacts, and an optional link shown with a QR code.",
+  "props": {
+    "variant": { "type": "enum", "values": ["light", "dark", "accent"], "default": "dark" },
+    "title": { "type": "text", "max": 24, "default": "Thank you" },
+    "text": { "type": "text", "max": 140 },
+    "contacts": { "type": "list", "max": 4, "of": { "type": "text", "max": 44 }, "description": "Names, handles or emails" },
+    "link": { "type": "url", "description": "Shown as a QR code and as text (not clickable)" },
+    "link_label": { "type": "text", "max": 40, "default": "Slides and links" }
+  }
+}

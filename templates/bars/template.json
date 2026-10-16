@@ -1,0 +1,25 @@
+{
+  "description": "A simple bar chart: two to seven labelled bars that grow from zero while their values count up. Highlight the bars that make your point.",
+  "props": {
+    "variant": { "type": "enum", "values": ["light", "dark", "accent"], "default": "dark" },
+    "kicker": { "type": "text", "max": 40, "description": "Small line above the title" },
+    "title": { "type": "text", "required": true, "max": 70, "description": "Say what the chart shows, like a headline" },
+    "unit": { "type": "text", "max": 8, "description": "Shown after every value, like % or ms or k" },
+    "decimals": { "type": "number", "default": 0, "description": "Digits after the decimal point (0 to 2)" },
+    "bars": {
+      "type": "list",
+      "required": true,
+      "min": 2,
+      "max": 7,
+      "of": {
+        "type": "object",
+        "props": {
+          "label": { "type": "text", "required": true, "max": 24 },
+          "value": { "type": "number", "required": true, "description": "Zero or more; bars are drawn to scale with the largest" },
+          "highlight": { "type": "boolean", "default": false, "description": "Draws this bar in the aurora colours" }
+        }
+      }
+    },
+    "note": { "type": "text", "max": 100, "description": "Where the numbers come from, or how to read them" }
+  }
+}

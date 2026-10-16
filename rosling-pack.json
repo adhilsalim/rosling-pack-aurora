@@ -1,0 +1,6 @@
+{
+  "name": "aurora",
+  "version": "1.0.0",
+  "description": "Northern lights for your talk: a deep night theme and eight animated templates for a complete presentation",
+  "rosling": ">=0.1.0"
+}

@@ -1,0 +1,23 @@
+{
+  "description": "Two to six steps along a line that draws itself, for a history, a roadmap or a process. One step can be marked as where we are now.",
+  "props": {
+    "variant": { "type": "enum", "values": ["light", "dark", "accent"], "default": "dark" },
+    "kicker": { "type": "text", "max": 40, "description": "Small line above the title" },
+    "title": { "type": "text", "required": true, "max": 70 },
+    "steps": {
+      "type": "list",
+      "required": true,
+      "min": 2,
+      "max": 6,
+      "of": {
+        "type": "object",
+        "props": {
+          "when": { "type": "text", "max": 14, "description": "A date, a year or a step number" },
+          "title": { "type": "text", "required": true, "max": 32 },
+          "text": { "type": "text", "max": 110 },
+          "now": { "type": "boolean", "default": false, "description": "Marks the step we are at now" }
+        }
+      }
+    }
+  }
+}

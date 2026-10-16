@@ -1,0 +1,57 @@
+/* aurora: northern lights over a deep night sky. A theme sets the tokens below for each variant
+   (light, dark, accent) and styles the footer (.slide-footer). Templates only use the tokens.
+   Two extra, optional tokens are for templates that want more than one accent colour:
+   --aurora-a, --aurora-b, --aurora-c (the three colours of the lights) and --font-display (big words).
+   Templates should always give them a fallback, like var(--aurora-a, var(--accent)). */
+
+/* Web fonts. Offline, the system fonts in the stacks below take over and the slides still look right. */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ---- tokens: light, a pale polar morning ---- */
+.slide{
+  --bg:#f5f7fb; --fg:#0b1124; --muted:#4a5572; --line:#dbe1ec;
+  --accent:#087a5d; --accent-strong:#055a45; --accent-soft:#e2f4ed; --surface:#eaeef5;
+  --over:#c8213a;
+  --aurora-a:#1fc490; --aurora-b:#1aa3d4; --aurora-c:#7b5cf5;
+  --font:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --font-display:'Instrument Serif','Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;
+  --font-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+}
+
+/* ---- tokens: dark, the night sky (the look the aurora templates use by default) ---- */
+.slide.dark{
+  --bg:#060a17; --fg:#eef2ff; --muted:#9ba7c7; --line:rgba(200,214,255,.14);
+  --accent:#4ff0b4; --accent-strong:#a8ffd9; --accent-soft:#0f1d2b; --surface:#0f1628;
+  --over:#ff7b8a;
+  --aurora-a:#3ff2b0; --aurora-b:#2cc4ec; --aurora-c:#9b7bff;
+}
+
+/* ---- tokens: accent, deep violet dusk ---- */
+.slide.accent{
+  --bg:#170f3a; --fg:#ffffff; --muted:rgba(236,232,255,.78); --line:rgba(255,255,255,.2);
+  --accent:#6ff7c4; --accent-strong:#c2ffe6; --accent-soft:rgba(255,255,255,.08); --surface:rgba(255,255,255,.08);
+  --over:#ffb3bd;
+  --aurora-a:#56f3bb; --aurora-b:#4fd2ff; --aurora-c:#c9a2ff;
+}
+
+/* ---- backgrounds: a faint glow of the lights behind every dark and accent slide ---- */
+.slide.dark{background:
+  radial-gradient(1100px 520px at 88% -8%,color-mix(in oklab,var(--aurora-c) 16%,transparent),transparent 70%),
+  radial-gradient(900px 460px at 6% 108%,color-mix(in oklab,var(--aurora-a) 9%,transparent),transparent 70%),
+  var(--bg)}
+.slide.accent{background:
+  radial-gradient(1200px 640px at 90% 0%,color-mix(in oklab,var(--aurora-b) 22%,transparent),transparent 70%),
+  radial-gradient(1000px 600px at 0% 100%,color-mix(in oklab,var(--aurora-a) 18%,transparent),transparent 70%),
+  linear-gradient(160deg,#211452,var(--bg) 60%)}
+
+/* ---- footer: see-through, so the sky runs underneath ---- */
+.slide-footer{position:absolute;left:0;right:0;bottom:0;height:var(--footer-h);padding:0 var(--pad-x);display:flex;align-items:center;justify-content:space-between;
+  font-size:21px;color:var(--muted);z-index:5}
+.slide-footer::before{content:"";position:absolute;left:var(--pad-x);right:var(--pad-x);top:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--line) 12%,var(--line) 88%,transparent)}
+.slide-footer .event{display:flex;align-items:center;gap:16px;letter-spacing:.01em}
+.slide-footer .event::before{content:"";width:12px;height:12px;border-radius:50%;
+  background:linear-gradient(135deg,var(--aurora-a),var(--aurora-b) 50%,var(--aurora-c));box-shadow:0 0 14px color-mix(in oklab,var(--aurora-a) 60%,transparent)}
+.slide-footer .num{font-family:var(--font-mono);font-size:20px;letter-spacing:.06em}
+.slide-footer .num b{font-weight:500;color:var(--fg)}
+.slide-footer .num span{opacity:.6}

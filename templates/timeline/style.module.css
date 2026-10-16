@@ -1,0 +1,32 @@
+/* timeline: styles used only by this template. */
+/* the three colours of the lights: the theme's aurora colours, or shades of its accent in any other theme */
+.slide{--a:var(--aurora-a,var(--accent));--b:var(--aurora-b,var(--accent-strong));--c:var(--aurora-c,color-mix(in oklab,var(--accent) 55%,var(--fg)))}
+
+/* ---- heading ---- */
+.kicker{font-family:var(--font-mono);font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;animation:fade-up .8s cubic-bezier(.2,.7,.2,1) .1s both}
+.title{font-weight:300;font-size:64px;line-height:1.1;letter-spacing:-.025em;max-width:1500px;animation:fade-up .9s cubic-bezier(.2,.7,.2,1) .2s both;text-wrap:balance}
+
+/* ---- the line, the dots and the steps; each step starts as the line reaches it ---- */
+.steps{position:relative;list-style:none;display:grid;gap:48px;margin-top:auto;margin-bottom:auto;padding-top:76px}
+.steps::before{content:"";position:absolute;left:0;right:0;top:15px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--a),var(--b) 50%,var(--c) 85%,transparent);
+  box-shadow:0 0 18px color-mix(in oklab,var(--b) 55%,transparent);transform-origin:0 50%;animation:draw 1.6s cubic-bezier(.65,0,.25,1) .45s both}
+.steps li{position:relative;--at:calc(.55s + 1.6s * var(--i) / var(--n))}
+.dot{position:absolute;left:0;top:-76px;width:32px;height:32px;border-radius:50%;background:var(--bg);border:2px solid var(--b);animation:pop .55s cubic-bezier(.3,1.5,.5,1) both;animation-delay:var(--at)}
+.dot::after{content:"";position:absolute;inset:7px;border-radius:50%;background:var(--b)}
+.when{font-family:var(--font-mono);font-size:24px;letter-spacing:.06em;color:var(--accent);margin-bottom:14px;animation:fade-up .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--at) + .1s)}
+.head{font-size:36px;font-weight:600;line-height:1.2;letter-spacing:-.015em;animation:fade-up .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--at) + .18s);text-wrap:balance}
+.text{font-size:25px;line-height:1.5;color:var(--muted);margin-top:16px;max-width:420px;animation:fade-up .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--at) + .26s)}
+.many{gap:36px}
+.many .head{font-size:30px}
+.many .text{font-size:22px}
+
+/* ---- the step we are at now: a bright, glowing dot ---- */
+.now .dot{border-color:var(--a);box-shadow:0 0 0 10px color-mix(in oklab,var(--a) 16%,transparent),0 0 36px color-mix(in oklab,var(--a) 60%,transparent)}
+.now .dot::after{background:var(--a)}
+.now .when{color:var(--a)}
+
+/* ---- motion ---- */
+@keyframes fade-up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes draw{from{transform:scaleX(0)}to{transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.kicker,.title,.steps::before,.dot,.when,.head,.text{animation:none}}

@@ -1,0 +1,20 @@
+{
+  "description": "The opening slide, under a slowly moving aurora. A big title whose lines rise into place, a subtitle and the speakers; the event, date and venue come from deck.json › config.",
+  "props": {
+    "variant": { "type": "enum", "values": ["light", "dark", "accent"], "default": "dark" },
+    "kicker": { "type": "text", "max": 60, "default": "{event}", "description": "Small line above the title" },
+    "title": { "type": "text", "required": true, "max": 64, "description": "The talk's title. A line break starts a new line; **bold** words glow in the aurora colours." },
+    "subtitle": { "type": "text", "max": 140 },
+    "speakers": {
+      "type": "list",
+      "max": 3,
+      "of": {
+        "type": "object",
+        "props": {
+          "name": { "type": "text", "required": true, "max": 32 },
+          "role": { "type": "text", "max": 50 }
+        }
+      }
+    }
+  }
+}

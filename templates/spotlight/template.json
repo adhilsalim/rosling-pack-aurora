@@ -1,0 +1,13 @@
+{
+  "description": "A full-bleed photo or video that slowly drifts closer, with a title and a caption over a soft shade. For the picture that says it best.",
+  "props": {
+    "variant": { "type": "enum", "values": ["light", "dark", "accent"], "default": "dark" },
+    "image": { "type": "image", "required": true, "description": "A file in assets/ (png, jpg, svg, or an mp4/webm video); it fills the whole slide" },
+    "alt": { "type": "text", "max": 200, "description": "What the image shows, for people who can't see it" },
+    "kicker": { "type": "text", "max": 40, "description": "Small line above the title" },
+    "title": { "type": "text", "required": true, "max": 60 },
+    "caption": { "type": "text", "max": 150 },
+    "credit": { "type": "text", "max": 60, "description": "Who took the photo; shown small in the corner" },
+    "side": { "type": "enum", "values": ["left", "right"], "default": "left", "description": "Which side the words are on" }
+  }
+}

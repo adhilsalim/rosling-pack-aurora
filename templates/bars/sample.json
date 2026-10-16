@@ -1,0 +1,13 @@
+{
+  "kicker": "Where the alerts come from",
+  "title": "Most warnings now start with a watcher's photo",
+  "unit": "%",
+  "bars": [
+    { "label": "Public photos", "value": 46, "highlight": true },
+    { "label": "Satellite data", "value": 27 },
+    { "label": "All-sky cameras", "value": 15 },
+    { "label": "Magnetometers", "value": 8 },
+    { "label": "Other stations", "value": 4 }
+  ],
+  "note": "Share of first alerts by source, winter 2025 to 2026"
+}

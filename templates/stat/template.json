@@ -1,0 +1,26 @@
+{
+  "description": "One to three big numbers that count up from zero, each with a short label. For the figures you want people to remember.",
+  "props": {
+    "variant": { "type": "enum", "values": ["light", "dark", "accent"], "default": "dark" },
+    "kicker": { "type": "text", "max": 50, "description": "Small line above the title" },
+    "title": { "type": "text", "max": 80, "description": "What the numbers are about" },
+    "stats": {
+      "type": "list",
+      "required": true,
+      "min": 1,
+      "max": 3,
+      "of": {
+        "type": "object",
+        "props": {
+          "value": { "type": "number", "required": true, "description": "The number itself; it counts up to this" },
+          "decimals": { "type": "number", "default": 0, "description": "Digits after the decimal point (0 to 2)" },
+          "prefix": { "type": "text", "max": 3, "description": "Before the number, like $ or +" },
+          "suffix": { "type": "text", "max": 6, "description": "After the number, like % or k or ms" },
+          "label": { "type": "text", "required": true, "max": 60 },
+          "detail": { "type": "text", "max": 110 }
+        }
+      }
+    },
+    "source": { "type": "text", "max": 100, "description": "Where the numbers come from" }
+  }
+}
